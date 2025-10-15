@@ -23,7 +23,40 @@
     $producto->InsertarProducto();
     ?>
     <div class="card text-start">
-        <img class="card-img-top" src="holder.js/100px180/" alt="Title" />
+        <div
+            class="card text-white bg-primary"
+        >
+            <img class="card-img-top" src="holder.js/100px180/" alt="Title" />
+            <div class="card-body">
+                <h4 class="card-title">Productos</h4>
+                <table>
+                    <tr>
+                        <th>ID Producto</th>
+                        <th>Nombre</th>
+                        <th>Tamaño</th>
+                        <th>Precio de venta</th>
+                        <th>Imagen</th>
+                        <th>ID Proveedor</th>
+                        <th>ID Tipo de producto</th>
+                    </tr>
+                    <?php
+                    $productos = $producto->Mostrar();
+                    foreach ($productos as $prod) {
+                        echo "<tr>";
+                        echo "<td>" . $prod->getIdProducto() . "</td>";
+                        echo "<td>" . $prod->getNombre() . "</td>";
+                        echo "<td>" . $prod->getTamanio() . "</td>";
+                        echo "<td>" . $prod->getPrecioVenta() . "</td>";
+                        echo "<td>" . $prod->getImagen() . "</td>";
+                        echo "<td>" . $prod->getProveedor() . "</td>";
+                        echo "<td>" . $prod->getTipoProducto() . "</td>";
+                        echo "</tr>";
+                    }
+                    ?>
+                </table>
+            </div>
+        </div>
+        
         <div class="card-body">
             <h4 class="card-title">Inserte producto</h4>
             <p class="card-text">
